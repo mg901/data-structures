@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "commit": "cz",
+    "test": "jest",
     "prepare": "husky install"
   },
   "devDependencies": {
