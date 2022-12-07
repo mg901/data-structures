@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "commit": "cz"
+  },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "commitizen": "^4.2.6"
   }
 }
