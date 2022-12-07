@@ -24,5 +24,16 @@ class LinkedList {
 
       return this;
     }
+
+    this.tail.next = newNode;
+    this.tail = newNode;
+
+    return this;
   }
 }
+
+const list = new LinkedList();
+
+list.append('a').append('b').append('c');
+
+console.log(JSON.stringify(list, null, 2));
