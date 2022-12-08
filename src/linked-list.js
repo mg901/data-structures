@@ -9,6 +9,8 @@ class LinkedListNode {
   }
 }
 
+exports.LinkedListNode = LinkedListNode;
+
 class LinkedList {
   constructor() {
     this.head = null;
@@ -30,10 +32,28 @@ class LinkedList {
 
     return this;
   }
+
+  toArray() {
+    const nodes = [];
+    let currentNode = this.head;
+
+    while (currentNode) {
+      nodes.push(currentNode);
+
+      currentNode = currentNode.next;
+    }
+
+    return nodes;
+  }
+
+  toString() {
+    return this.toArray()
+      .map((node) => node.toString())
+      .toString();
+  }
 }
 
-const list = new LinkedList();
-
-list.append('a').append('b').append('c');
-
-console.log(JSON.stringify(list, null, 2));
+module.exports = {
+  LinkedListNode,
+  LinkedList,
+};
