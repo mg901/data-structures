@@ -1,4 +1,4 @@
-const { LinkedListNode } = require('../linked-list-node');
+const LinkedListNode = require('./linked-list-node');
 
 describe('LinkedListNode', () => {
   it('should create list node with value', () => {
