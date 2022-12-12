@@ -44,48 +44,48 @@ describe('LinkedList', () => {
     expect(list.toString()).toEqual('1,4,2,3,10');
   });
 
-  // it('should delete node by value from linked list', () => {
-  //   const list = new LinkedList();
+  it('should delete node by value from linked list', () => {
+    const list = new LinkedList();
 
-  //   expect(list.delete(5)).toBeNull();
-  //   list
-  //     .append(1)
-  //     .append(1)
-  //     .append(2)
-  //     .append(3)
-  //     .append(3)
-  //     .append(3)
-  //     .append(4)
-  //     .append(5);
+    expect(list.delete(5)).toBeNull();
+    list
+      .append(1)
+      .append(1)
+      .append(2)
+      .append(3)
+      .append(3)
+      .append(3)
+      .append(4)
+      .append(5);
 
-  //   expect(list.head.toString()).toEqual('1');
-  //   expect(list.tail.toString()).toEqual('5');
+    expect(list.head.toString()).toEqual('1');
+    expect(list.tail.toString()).toEqual('5');
 
-  //   const deletedNode = list.delete(3);
-  //   expect(list.toString()).toEqual('1,1,2,4,5');
-  //   expect(deletedNode).toEqual(3);
+    const deletedNode = list.delete(3);
+    expect(deletedNode.value).toEqual(3);
+    expect(list.toString()).toEqual('1,1,2,4,5');
 
-  //   list.delete(3);
-  //   expect(list.toString()).toEqual('1,1,2,4,5');
+    list.delete(3);
+    expect(list.toString()).toEqual('1,1,2,4,5');
 
-  //   list.delete(1);
-  //   expect(list.toString()).toEqual('2,4,5');
-  //   expect(list.head.toString()).toEqual('2');
-  //   expect(list.tail.toString()).toEqual('5');
+    list.delete(1);
+    expect(list.toString()).toEqual('2,4,5');
+    expect(list.head.toString()).toEqual('2');
+    expect(list.tail.toString()).toEqual('5');
 
-  //   list.delete(5);
-  //   expect(list.toString()).toEqual('2,4');
-  //   expect(list.head.toString()).toEqual('2');
-  //   expect(list.tail.toString()).toEqual('4');
+    list.delete(5);
+    expect(list.toString()).toEqual('2,4');
+    expect(list.head.toString()).toEqual('2');
+    expect(list.tail.toString()).toEqual('4');
 
-  //   list.delete(4);
-  //   expect(list.toString()).toEqual('2');
-  //   expect(list.head.toString()).toEqual('2');
-  //   expect(list.tail.toString()).toEqual('2');
+    list.delete(4);
+    expect(list.toString()).toEqual('2');
+    expect(list.head.toString()).toEqual('2');
+    expect(list.tail.toString()).toEqual('2');
 
-  //   list.delete(2);
-  //   expect(list.toString()).toEqual('');
-  // });
+    list.delete(2);
+    expect(list.toString()).toEqual('');
+  });
 });
 
 // it('should delete linked list tail', () => {

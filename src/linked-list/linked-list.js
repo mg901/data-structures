@@ -1,4 +1,5 @@
 const { LinkedListNode } = require('../linked-list-node');
+const { Comparator } = require('../comparator');
 
 module.exports = class LinkedList {
   /**
@@ -11,7 +12,7 @@ module.exports = class LinkedList {
 
     /** @var LinkedListNode */
     this.tail = null;
-    this.compare = comparatorFunction;
+    this.compare = new Comparator(comparatorFunction);
   }
 
   /**
@@ -88,6 +89,45 @@ module.exports = class LinkedList {
       }
     }
     return this;
+  }
+
+  /**
+   * @param {*} value
+   * @return {LinkedListNode}
+   */
+  delete(value) {
+    if (!this.head) {
+      return null;
+    }
+
+    let deletedNode = null;
+
+    // If the head must be deleted then make next node that is different
+    // from the head to be a new head.
+    while (this.head && this.compare.equal(this.head.value, value)) {
+      deletedNode = this.head;
+      this.head = this.head.next;
+    }
+
+    let currentNode = this.head;
+
+    if (currentNode !== null) {
+      // If next node must be deleted then make next node to be a next next one.
+      while (currentNode.next) {
+        if (this.compare.equal(currentNode.next.value, value)) {
+          deletedNode = currentNode.next;
+          currentNode.next = currentNode.next.next;
+        } else {
+          currentNode = currentNode.next;
+        }
+      }
+    }
+
+    if (this.compare.equal(this.tail.value, value)) {
+      this.tail = currentNode;
+    }
+
+    return deletedNode;
   }
 
   toArray() {
