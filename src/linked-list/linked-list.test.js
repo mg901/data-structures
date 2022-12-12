@@ -86,33 +86,33 @@ describe('LinkedList', () => {
     list.delete(2);
     expect(list.toString()).toEqual('');
   });
+
+  it('should delete linked list tail', () => {
+    const list = new LinkedList();
+
+    list.append(1).append(2).append(3);
+    expect(list.head.toString()).toEqual('1');
+    expect(list.tail.toString()).toEqual('3');
+
+    const deletedNode1 = list.deleteTail();
+    expect(deletedNode1.value).toEqual(3);
+    expect(list.toString()).toEqual('1,2');
+    expect(list.head.toString()).toEqual('1');
+    expect(list.tail.toString()).toEqual('2');
+
+    const deletedNode2 = list.deleteTail();
+    expect(deletedNode2.value).toEqual(2);
+    expect(list.toString()).toEqual('1');
+    expect(list.head.toString()).toEqual('1');
+    expect(list.tail.toString()).toEqual('1');
+
+    const deletedNode3 = list.deleteTail();
+    expect(deletedNode3.value).toEqual(1);
+    expect(list.toString()).toEqual('');
+    expect(list.head).toBeNull();
+    expect(list.tail).toBeNull();
+  });
 });
-
-// it('should delete linked list tail', () => {
-//   const list = new LinkedList();
-
-//   list.append(1).append(2).append(3);
-//   expect(list.head.toString()).toEqual('1');
-//   expect(list.tail.toString()).toEqual('3');
-
-//   const deletedNode1 = list.deleteTail();
-//   expect(deletedNode1.value).toEqual(3);
-//   expect(list.toString()).toEqual('1,2');
-//   expect(list.head.toString()).toEqual('1');
-//   expect(list.tail.toString()).toEqual('2');
-
-//   const deletedNode2 = list.deleteTail();
-//   expect(deletedNode2.value).toEqual(2);
-//   expect(list.toString()).toEqual('1');
-//   expect(list.head.toString()).toEqual('1');
-//   expect(list.tail.toString()).toEqual('1');
-
-//   const deletedNode3 = list.deleteTail();
-//   expect(deletedNode3.value).toEqual(1);
-//   expect(list.toString()).toEqual('');
-//   expect(list.head).toBeNull();
-//   expect(list.tail).toBeNull();
-// });
 
 // it('should delete linked list head', () => {
 //   const list = new LinkedList();
