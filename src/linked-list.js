@@ -1,17 +1,4 @@
-class LinkedListNode {
-  constructor(value, next = null) {
-    this.value = value;
-    this.next = next;
-  }
-
-  toString() {
-    return `${this.value}`;
-  }
-}
-
-exports.LinkedListNode = LinkedListNode;
-
-class LinkedList {
+exports.LinkedList = class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -51,9 +38,4 @@ class LinkedList {
       .map((node) => node.toString())
       .toString();
   }
-}
-
-module.exports = {
-  LinkedListNode,
-  LinkedList,
 };
