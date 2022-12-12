@@ -32,17 +32,17 @@ describe('LinkedList', () => {
     expect(list.tail.next).toBeNull();
   });
 
-  // it('should insert node to linked list', () => {
-  //   const list = new LinkedList();
+  it('should insert node to linked list', () => {
+    const list = new LinkedList();
 
-  //   list.insert(4, 3);
-  //   expect(list.head.toString()).toEqual('4');
-  //   expect(list.tail.toString()).toEqual('4');
+    list.insert(4, 3);
+    expect(list.head.toString()).toEqual('4');
+    expect(list.tail.toString()).toEqual('4');
 
-  //   list.insert(3, 2).insert(2, 1).insert(1, -7).insert(10, 9);
+    list.insert(3, 2).insert(2, 1).insert(1, -7).insert(10, 9);
 
-  //   expect(list.toString()).toEqual('1,4,2,3,10');
-  // });
+    expect(list.toString()).toEqual('1,4,2,3,10');
+  });
 
   // it('should delete node by value from linked list', () => {
   //   const list = new LinkedList();
