@@ -1,6 +1,6 @@
-const { LinkedListNode } = require('./linked-list-node');
+const { LinkedListNode } = require('../linked-list-node');
 
-exports.LinkedList = class LinkedList {
+module.exports = class LinkedList {
   /**
    *
    * @param {Function} [comparatorFunction]

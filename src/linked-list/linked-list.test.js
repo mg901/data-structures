@@ -1,4 +1,4 @@
-const { LinkedList } = require('../linked-list');
+const LinkedList = require('./linked-list');
 
 describe('LinkedList', () => {
   it('should create empty linked list', () => {
