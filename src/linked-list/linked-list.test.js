@@ -164,27 +164,27 @@ describe('LinkedList', () => {
     expect(node.value).toEqual(2);
     expect(list.find({ value: 5 })).toBeNull();
   });
+
+  it('should find to by callback', () => {
+    const list = new LinkedList();
+
+    list
+      .append({ value: 1, key: 'test1' })
+      .append({ value: 2, key: 'test2' })
+      .append({ value: 3, key: 'test3' });
+
+    const node = list.find({
+      callback: (value) => value.key === 'test2',
+    });
+
+    expect(node).toBeDefined();
+    expect(node.value.value).toEqual(2);
+    expect(node.value.key).toEqual('test2');
+    expect(
+      list.find({ callback: (value) => value.key === 'test5' }),
+    ).toBeNull();
+  });
 });
-
-// it('should find to by callback', () => {
-//   const list = new LinkedList();
-
-//   list
-//     .append({ value: 1, key: 'test1' })
-//     .append({ value: 2, key: 'test2' })
-//     .append({ value: 3, key: 'test3' });
-
-//   const node = list.find({
-//     callback: (value) => value.key === 'test2',
-//   });
-
-//   expect(node).toBeDefined();
-//   expect(node.value).toEqual(2);
-//   expect(node.key).toEqual('test2');
-//   expect(
-//     list.find({ callback: (value) => value.key === 'test5' }),
-//   ).toBeNull();
-// });
 
 // it('should create linked list from array', () => {
 //   const list = new LinkedList();
