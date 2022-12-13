@@ -134,25 +134,25 @@ describe('LinkedList', () => {
     expect(list.head).toBeNull();
     expect(list.tail).toBeNull();
   });
+
+  it('should be possible to store objects in the list and to print them out', () => {
+    const list = new LinkedList();
+    const nodeValue1 = {
+      value: 1,
+      key: 'test1',
+    };
+
+    const nodeValue2 = {
+      value: 2,
+      key: 'test2',
+    };
+
+    list.append(nodeValue1).prepend(nodeValue2);
+
+    const nodeStringifier = (value) => `${value.key}:${value.value}`;
+    expect(list.toString(nodeStringifier)).toEqual('test2:2,test1:1');
+  });
 });
-
-// it('should be possible to store objects in the list and to print them out', () => {
-//   const list = new LinkedList();
-//   const nodeValue1 = {
-//     value: 1,
-//     key: 'test1',
-//   };
-
-//   const nodeValue2 = {
-//     value: 2,
-//     key: 'test2',
-//   };
-
-//   list.append(nodeValue1).prepend(nodeValue2);
-
-//   const nodeStringifier = (value) => `${value.key}:${value.value}`;
-//   expect(list.toString(nodeStringifier)).toEqual('key2:2,key1:1');
-// });
 
 // it('should find node by value', () => {
 //   const list = new LinkedList();
