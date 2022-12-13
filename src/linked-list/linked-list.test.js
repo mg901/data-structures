@@ -191,6 +191,13 @@ describe('LinkedList', () => {
 
     expect(list.toString()).toEqual('1,1,2,3,3,3,4,5');
   });
+
+  it('should convert to array', () => {
+    const list = new LinkedList();
+
+    list.append(1).append(2).append(3);
+    expect(list.toArray().toString()).toEqual('1,2,3');
+  });
 });
 
 // it('should find node by means custom compare function', () => {

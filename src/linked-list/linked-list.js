@@ -222,6 +222,9 @@ module.exports = class LinkedList {
     return this;
   }
 
+  /**
+   * @return {LinkedListNode[]}
+   */
   toArray() {
     const nodes = [];
 
