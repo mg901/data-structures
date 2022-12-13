@@ -184,14 +184,14 @@ describe('LinkedList', () => {
       list.find({ callback: (value) => value.key === 'test5' }),
     ).toBeNull();
   });
+
+  it('should create linked list from array', () => {
+    const list = new LinkedList();
+    list.fromArray([1, 1, 2, 3, 3, 3, 4, 5]);
+
+    expect(list.toString()).toEqual('1,1,2,3,3,3,4,5');
+  });
 });
-
-// it('should create linked list from array', () => {
-//   const list = new LinkedList();
-//   list.fromArray([1, 1, 2, 3, 3, 3, 4, 5]);
-
-//   expect(list.toString()).toEqual('1,1,2,3,3,3,4,5');
-// });
 
 // it('should find node by means custom compare function', () => {
 //   const comparator = (a, b) => {

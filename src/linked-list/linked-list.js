@@ -212,6 +212,16 @@ module.exports = class LinkedList {
     return null;
   }
 
+  /**
+   * @param {*[]} values - Array of values that need to be converted to linked list.
+   * @return {LinkedList}
+   */
+  fromArray(values) {
+    values.forEach((value) => this.append(value));
+
+    return this;
+  }
+
   toArray() {
     const nodes = [];
 
