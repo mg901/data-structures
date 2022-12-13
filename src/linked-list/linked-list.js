@@ -184,8 +184,8 @@ module.exports = class LinkedList {
 
   toArray() {
     const nodes = [];
-    let currentNode = this.head;
 
+    let currentNode = this.head;
     while (currentNode) {
       nodes.push(currentNode);
 
@@ -195,9 +195,13 @@ module.exports = class LinkedList {
     return nodes;
   }
 
-  toString() {
+  /**
+   * @param {Function} [callback]
+   * @return {string}
+   */
+  toString(callback) {
     return this.toArray()
-      .map((node) => node.toString())
+      .map((node) => node.toString(callback))
       .toString();
   }
 };
