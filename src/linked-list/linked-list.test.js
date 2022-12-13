@@ -152,19 +152,19 @@ describe('LinkedList', () => {
     const nodeStringifier = (value) => `${value.key}:${value.value}`;
     expect(list.toString(nodeStringifier)).toEqual('test2:2,test1:1');
   });
+
+  it('should find node by value', () => {
+    const list = new LinkedList();
+
+    expect(list.find({ value: 5 })).toBeNull();
+
+    list.append(2).append(3);
+
+    const node = list.find({ value: 2 });
+    expect(node.value).toEqual(2);
+    expect(list.find({ value: 5 })).toBeNull();
+  });
 });
-
-// it('should find node by value', () => {
-//   const list = new LinkedList();
-
-//   expect(list.find({ value: 5 })).toBeNull();
-
-//   list.append(2).append(3);
-
-//   const node = list.find({ value: 2 });
-//   expect(node.value).toEqual(2);
-//   expect(list.find({ value: 5 })).toBeNull();
-// });
 
 // it('should find to by callback', () => {
 //   const list = new LinkedList();
