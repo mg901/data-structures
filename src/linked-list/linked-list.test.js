@@ -221,47 +221,46 @@ describe('LinkedList', () => {
     expect(list.head.value).toEqual(1);
     expect(list.tail.value).toEqual(3);
   });
+
+  it('should find node by means custom compare function', () => {
+    const comparator = (a, b) => {
+      if (a.customValue === b.customValue) {
+        return 0;
+      }
+      return a.customValue < b.customValue ? -1 : 1;
+    };
+
+    const list = new LinkedList(comparator);
+
+    list
+      .append({ value: 1, customValue: 'test1' })
+      .append({ value: 2, customValue: 'test2' })
+      .append({ value: 3, customValue: 'test3' });
+
+    const node = list.find({
+      value: { value: 2, customValue: 'test2' },
+    });
+
+    expect(node).toBeDefined();
+    expect(node.value.value).toEqual(2);
+    expect(node.value.customValue).toEqual('test2');
+    expect(
+      list.find({
+        value: { value: 2, customValue: 'test5' },
+      }),
+    ).toBeNull();
+  });
+
+  // it('should find preferring callback over compare function', () => {
+  //   const greaterThan = (value, compareTo) => (value > compareTo ? 0 : 1);
+
+  //   const list = new LinkedList(greaterThan);
+  //   list.fromArray([1, 2, 3, 4, 5]);
+
+  //   let node = list.find({ value: 3 });
+  //   expect(node.value).toEqual(4);
+
+  //   node = node.find({ callback: (value) => value < 3 });
+  //   expect(node.value).toEqual(1);
+  // });
 });
-
-// it('should find node by means custom compare function', () => {
-//   const comparator = (a, b) => {
-//     if (a.customValue === b.customValue) {
-//       return 0;
-//     }
-
-//     return a.customValue < b.customValue ? -1 : 1;
-//   };
-
-//   const list = new LinkedList(comparator);
-
-//   list
-//     .append({ value: 1, customValue: 'test1' })
-//     .append({ value: 2, customValue: 'test2' })
-//     .append({ value: 3, customValue: 'test3' });
-
-//   const node = list.find({
-//     value: { value: 2, customValue: 'test2' },
-//   });
-
-//   expect(node).toBeDefined();
-//   expect(node.value.value).toEqual(2);
-//   expect(node.value.customValue).toEqual('test2');
-//   expect(
-//     list.find({
-//       value: { value: 2, customValue: 'test2' },
-//     }),
-//   ).toBeNull();
-// });
-
-// it('should find preferring callback over compare function', () => {
-//   const greaterThan = (value, compareTo) => (value > compareTo ? 0 : 1);
-
-//   const list = new LinkedList(greaterThan);
-//   list.fromArray([1, 2, 3, 4, 5]);
-
-//   let node = list.find({ value: 3 });
-//   expect(node.value).toEqual(4);
-
-//   node = node.find({ callback: (value) => value < 3 });
-//   expect(node.value).toEqual(1);
-// });
