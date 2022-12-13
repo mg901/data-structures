@@ -198,6 +198,29 @@ describe('LinkedList', () => {
     list.append(1).append(2).append(3);
     expect(list.toArray().toString()).toEqual('1,2,3');
   });
+
+  it('should reverse linked list', () => {
+    const list = new LinkedList();
+
+    // Add test values to linked list
+    list.append(1).append(2).append(3);
+
+    expect(list.toString()).toEqual('1,2,3');
+    expect(list.head.value).toEqual(1);
+    expect(list.tail.value).toEqual(3);
+
+    // Reverse linked list
+    list.reverse();
+    expect(list.toString()).toEqual('3,2,1');
+    expect(list.head.value).toEqual(3);
+    expect(list.tail.value).toEqual(1);
+
+    // Reverse linked list back to initial state
+    list.reverse();
+    expect(list.toString()).toEqual('1,2,3');
+    expect(list.head.value).toEqual(1);
+    expect(list.tail.value).toEqual(3);
+  });
 });
 
 // it('should find node by means custom compare function', () => {
@@ -241,34 +264,4 @@ describe('LinkedList', () => {
 
 //   node = node.find({ callback: (value) => value < 3 });
 //   expect(node.value).toEqual(1);
-// });
-
-// it('should convert to array', () => {
-//   const list = new LinkedList();
-
-//   list.append(1).append(2).append(3);
-//   expect(list.toArray().toString()).toEqual('1,2,3');
-// });
-
-// it('should reverse linked list', () => {
-//   const list = new LinkedList();
-
-//   // Add test values to linked list
-//   list.append(1).append(2).append(3);
-
-//   expect(list.toString()).toEqual('1,2,3');
-//   expect(list.head.value).toEqual(1);
-//   expect(list.tail.value).toEqual(3);
-
-//   // Reverse linked list
-//   list.reverse();
-//   expect(list.toString()).toEqual('3,2,1');
-//   expect(list.head.value).toEqual(3);
-//   expect(list.tail.value).toEqual(1);
-
-//   // Reverse linked list back to initial state
-//   list.reverse();
-//   expect(list.toString()).toEqual('1,2,3');
-//   expect(list.head.value).toEqual(1);
-//   expect(list.tail.value).toEqual(3);
 // });

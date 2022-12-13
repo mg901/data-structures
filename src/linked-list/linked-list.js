@@ -247,4 +247,29 @@ module.exports = class LinkedList {
       .map((node) => node.toString(callback))
       .toString();
   }
+
+  /**
+   * @return {LinkedList}
+   */
+  reverse() {
+    let currentNode = this.head;
+    let prevNode = null;
+    let nextNode = null;
+
+    while (currentNode) {
+      // Store next node.
+      nextNode = currentNode.next;
+
+      // Change next node of the current node so it would link to previous node.
+      currentNode.next = prevNode;
+
+      // Move prev node and current nodes one step forward.
+      prevNode = currentNode;
+      currentNode = nextNode;
+    }
+
+    // Reset head and tail.
+    this.tail = this.head;
+    this.head = prevNode;
+  }
 };
