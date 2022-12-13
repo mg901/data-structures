@@ -112,29 +112,29 @@ describe('LinkedList', () => {
     expect(list.head).toBeNull();
     expect(list.tail).toBeNull();
   });
+
+  it('should delete linked list head', () => {
+    const list = new LinkedList();
+
+    expect(list.deleteHead()).toBeNull();
+
+    list.append(1).append(2);
+    expect(list.head.toString()).toEqual('1');
+    expect(list.tail.toString()).toEqual('2');
+
+    const deletedNode1 = list.deleteHead();
+    expect(deletedNode1.value).toEqual(1);
+    expect(list.toString()).toEqual('2');
+    expect(list.head.toString()).toEqual('2');
+    expect(list.tail.toString()).toEqual('2');
+
+    const deletedNode2 = list.deleteHead();
+    expect(deletedNode2.value).toEqual(2);
+    expect(list.toString()).toEqual('');
+    expect(list.head).toBeNull();
+    expect(list.tail).toBeNull();
+  });
 });
-
-// it('should delete linked list head', () => {
-//   const list = new LinkedList();
-
-//   expect(list.deleteHead()).toBeNull();
-
-//   list.append(1).append(2);
-//   expect(list.head.toString()).toEqual('1');
-//   expect(list.tail.toString()).toEqual('2');
-
-//   const deletedNode1 = list.deleteHead();
-//   expect(deletedNode1.value).toEqual(1);
-//   expect(list.toString()).toEqual('2');
-//   expect(list.head.toString()).toEqual('2');
-//   expect(list.tail.toString()).toEqual('2');
-
-//   const deletedNode2 = list.deleteHead();
-//   expect(deletedNode2.value).toEqual(2);
-//   expect(list.toString()).toEqual('');
-//   expect(list.head).toBeNull();
-//   expect(list.tail).toBeNull();
-// });
 
 // it('should be possible to store objects in the list and to print them out', () => {
 //   const list = new LinkedList();
