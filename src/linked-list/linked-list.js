@@ -162,6 +162,26 @@ module.exports = class LinkedList {
     return deletedTail;
   }
 
+  /**
+   * @return {LinkedListNode}
+   */
+  deleteHead() {
+    if (!this.head) {
+      return null;
+    }
+
+    const deletedHead = this.head;
+
+    if (this.head.next) {
+      this.head = this.head.next;
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+
+    return deletedHead;
+  }
+
   toArray() {
     const nodes = [];
     let currentNode = this.head;
