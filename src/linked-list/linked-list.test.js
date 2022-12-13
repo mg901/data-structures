@@ -251,16 +251,16 @@ describe('LinkedList', () => {
     ).toBeNull();
   });
 
-  // it('should find preferring callback over compare function', () => {
-  //   const greaterThan = (value, compareTo) => (value > compareTo ? 0 : 1);
+  it('should find preferring callback over compare function', () => {
+    const greaterThan = (value, compareTo) => (value > compareTo ? 0 : 1);
 
-  //   const list = new LinkedList(greaterThan);
-  //   list.fromArray([1, 2, 3, 4, 5]);
+    const list = new LinkedList(greaterThan);
+    list.fromArray([1, 2, 3, 4, 5]);
 
-  //   let node = list.find({ value: 3 });
-  //   expect(node.value).toEqual(4);
+    let node = list.find({ value: 3 });
+    expect(node.value).toEqual(4);
 
-  //   node = node.find({ callback: (value) => value < 3 });
-  //   expect(node.value).toEqual(1);
-  // });
+    node = list.find({ callback: (value) => value < 3 });
+    expect(node.value).toEqual(1);
+  });
 });
