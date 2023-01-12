@@ -59,6 +59,27 @@ class DoublyLinkedList {
 
     return this;
   }
+
+  /**
+   *
+   * @param {*} value
+   * @return {DoublyLinkedList}
+   */
+  prepend(value) {
+    const newNode = new DoublyLinkedListNode(value, this.head);
+
+    if (this.head) {
+      this.head.prev = newNode;
+    }
+
+    this.head = newNode;
+
+    if (!this.tail) {
+      this.tail = newNode;
+    }
+
+    return this;
+  }
 }
 
 module.exports = DoublyLinkedList;
