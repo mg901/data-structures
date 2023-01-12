@@ -80,6 +80,53 @@ class DoublyLinkedList {
 
     return this;
   }
+
+  /**
+   *
+   * @param {*} value
+   * @return {DoublyLinkedListNode}
+   */
+  delete(value) {
+    if (!this.head) {
+      return null;
+    }
+
+    let deletedNode = null;
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (this.compare.equal(currentNode.value, value)) {
+        deletedNode = currentNode;
+
+        if (deletedNode === this.head) {
+          // If HEAD going to be deleted...
+          this.head = deletedNode.next;
+
+          if (this.head) {
+            this.head.prev = null;
+          }
+
+          if (deletedNode === this.tail) {
+            this.tail = null;
+          }
+        } else if (deletedNode === this.tail) {
+          // If TAIL going to be deleted...
+          this.tail = deletedNode.prev;
+          this.tail.next = null;
+        } else {
+          // If MIDDLE node is going to be deleted...
+          const prevNode = deletedNode.prev;
+          const nextNode = deletedNode.next;
+
+          prevNode.next = nextNode;
+          nextNode.prev = prevNode;
+        }
+      }
+      currentNode = currentNode.next;
+    }
+
+    return deletedNode;
+  }
 }
 
 module.exports = DoublyLinkedList;
