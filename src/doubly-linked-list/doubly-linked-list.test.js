@@ -91,4 +91,24 @@ describe('DoublyLinkedList', () => {
 
     expect(list.fromArray([1, 2, 3]).toString()).toEqual('1,2,3');
   });
+
+  it('should be possible to store objects in the list and to print them out', () => {
+    const list = new DoublyLinkedList();
+
+    const nodeValue1 = {
+      value: 1,
+      key: 'key1',
+    };
+
+    const nodeValue2 = {
+      value: 2,
+      key: 'key2',
+    };
+
+    list.append(nodeValue1).append(nodeValue2);
+
+    const nodeStringifier = (value) => `${value.key}:${value.value}`;
+
+    expect(list.toString(nodeStringifier)).toEqual('key1:1,key2:2');
+  });
 });

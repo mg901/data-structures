@@ -32,8 +32,10 @@ class DoublyLinkedList {
    *
    * @return {string}
    */
-  toString() {
-    return this.toArray().toString();
+  toString(callback) {
+    return this.toArray()
+      .map((node) => node.toString(callback))
+      .toString();
   }
 
   /**
