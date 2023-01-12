@@ -127,6 +127,18 @@ class DoublyLinkedList {
 
     return deletedNode;
   }
+
+  /**
+   * @param {*[]} Array of values that need to be converted to doubly linked list.
+   * @return {DoublyLinkedList}
+   */
+  fromArray(array) {
+    array.forEach((value) => {
+      this.append(value);
+    });
+
+    return this;
+  }
 }
 
 module.exports = DoublyLinkedList;

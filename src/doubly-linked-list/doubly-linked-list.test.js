@@ -85,4 +85,10 @@ describe('DoublyLinkedList', () => {
     list.delete(2);
     expect(list.toString()).toEqual('');
   });
+
+  it('should convert list to array', () => {
+    const list = new DoublyLinkedList();
+
+    expect(list.fromArray([1, 2, 3]).toString()).toEqual('1,2,3');
+  });
 });
